@@ -39,6 +39,7 @@ public class Main {
     public static double calculateOrderCost(int quantity, int sizeChoice, int finishChoice, int timeChoice)
     {
         //Fixme placeholder code to test the menu, the values are arbitrary
+        //Fixme This is where the bugs should be inserted.
         double baseCost = 0.0;
 
         if (sizeChoice == 1) {
