@@ -57,7 +57,7 @@ public class Main
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter the number of prints (1-100): ");
-        int numberOfPrints = scanner.nextInt();
+        int quantity = scanner.nextInt();
 
         int sizeChoice = 0, finishChoice = 0, timeChoice = 0;
 
@@ -84,8 +84,8 @@ public class Main
             timeChoice = scanner.nextInt();
         }
 
-        double totalOrderCost = calculateOrderCost(orderType, numberOfPrints, sizeChoice, finishChoice, timeChoice);
-        System.out.println("Total Cost for " + numberOfPrints + " prints: $" + totalOrderCost);
+        double totalOrderCost = calculateOrderCost(orderType, quantity, sizeChoice, finishChoice, timeChoice);
+        System.out.println("Total Cost for " + quantity + " prints: $" + totalOrderCost);
     }
 
     public static double calculateOrderCost(int orderType, int quantity, int sizeChoice, int finishChoice, int timeChoice)
@@ -99,7 +99,7 @@ public class Main
             baseCost = calculateBaseCost(sizeChoice, quantity);
             baseCost = applyFinishCost(baseCost, sizeChoice, finishChoice);
             baseCost = applyProcessingTimeCost(baseCost, quantity, timeChoice, orderType);
-            baseCost = applyPromotionCodeDiscount(baseCost, quantity, finishChoice, timeChoice);
+            baseCost = applyPromotionCodeDiscount(baseCost, quantity);
         }
         else if (orderType == 2)
         {
@@ -251,7 +251,7 @@ public class Main
         }
     }
 
-    public static double applyPromotionCodeDiscount(double baseCost, int quantity, int finishChoice, int timeChoice)
+    public static double applyPromotionCodeDiscount(double baseCost, int quantity)
     {
         // Apply promotion code discount
         if (quantity == 100)
